@@ -8,8 +8,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Table(name = "user")
@@ -30,7 +32,7 @@ public class User implements UserDetails {
     private String password;
 
     @Column(name = "birth")
-    private LocalDateTime birth;
+    private LocalDate birth;
 
     @Column(name = "register_date")
     @CreationTimestamp
@@ -42,7 +44,7 @@ public class User implements UserDetails {
     private Integer roleId;
 
     @Builder
-    public User(String email, String password, LocalDateTime birth, LocalDateTime registerDate, Integer roleId) {
+    public User(String email, String password, LocalDate birth, LocalDateTime registerDate, Integer roleId) {
         this.email = email;
         this.password = password;
         this.birth = birth;

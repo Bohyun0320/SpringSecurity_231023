@@ -23,6 +23,7 @@ public class UserApiController {
 
     @PostMapping("/user")
     public String signup(AddUserRequest request) {
+        System.out.println(request.getBirth());
         userService.save(request);
         return "redirect:/login";
     }
